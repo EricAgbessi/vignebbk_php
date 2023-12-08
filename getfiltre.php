@@ -2,38 +2,34 @@
         require_once('connexion.php');
 
 
-       $sql = "SELECT
-    'Eléments' AS AttributeName, GROUP_CONCAT(DISTINCT elements) AS DistinctValues FROM hh
+       $sql = "
+SELECT
+    'Région/Domaine' AS AttributeName, 'Region_domaine' AS r_Name, GROUP_CONCAT(DISTINCT Region_domaine) AS DistinctValues FROM hh
 UNION ALL
 SELECT
-    'Région/Domaine' AS AttributeName, GROUP_CONCAT(DISTINCT Region_domaine) AS DistinctValues FROM hh
+    'Style de Vin' AS AttributeName, 'Style_de_Vin' AS r_Name, GROUP_CONCAT(DISTINCT Style_de_Vin) AS DistinctValues FROM hh
 UNION ALL
 SELECT
-    'Style de Vin' AS AttributeName, GROUP_CONCAT(DISTINCT Style_de_Vin) AS DistinctValues FROM hh
+    'Teneur en alcool' AS AttributeName, 'teneur_en_alcool' AS r_Name, GROUP_CONCAT(DISTINCT teneur_en_alcool) AS DistinctValues FROM hh
+UNION ALL
+SELECT DISTINCT 'cepages' AS AttributeName, 'designation' AS r_Name, GROUP_CONCAT(designation) AS DistinctValues FROM cepages
 UNION ALL
 SELECT
-    'Teneur en alcool' AS AttributeName, GROUP_CONCAT(DISTINCT teneur_en_alcool) AS DistinctValues FROM hh
+    'Allergenes' AS AttributeName,'allergenes' AS r_Name, GROUP_CONCAT(DISTINCT allergenes) AS DistinctValues FROM hh
+UNION ALL
+SELECT DISTINCT 'aliments_compatibles' AS AttributeName,'designation' AS r_Name, GROUP_CONCAT(designation) AS DistinctValues FROM aliments_compatibles
 UNION ALL
 SELECT
-    'CEPAGES' AS AttributeName, GROUP_CONCAT(DISTINCT cepages) AS DistinctValues FROM hh
+    'Prix /Unité' AS AttributeName,'prix_unite' AS r_Name, GROUP_CONCAT(DISTINCT prix_unite) AS DistinctValues FROM hh
 UNION ALL
 SELECT
-    'Allergenes' AS AttributeName, GROUP_CONCAT(DISTINCT allergenes) AS DistinctValues FROM hh
+    'Côte' AS AttributeName,'cote' AS r_Name, GROUP_CONCAT(DISTINCT cote) AS DistinctValues FROM hh
 UNION ALL
 SELECT
-    'Aliments compatibles' AS AttributeName, GROUP_CONCAT(DISTINCT aliments_compatibles) AS DistinctValues FROM hh
+    'Classification' AS AttributeName, 'classification' AS r_Name, GROUP_CONCAT(DISTINCT classification) AS DistinctValues FROM hh
 UNION ALL
 SELECT
-    'Prix /Unité' AS AttributeName, GROUP_CONCAT(DISTINCT prix_unite) AS DistinctValues FROM hh
-UNION ALL
-SELECT
-    'Côte' AS AttributeName, GROUP_CONCAT(DISTINCT cote) AS DistinctValues FROM hh
-UNION ALL
-SELECT
-    'Classification' AS AttributeName, GROUP_CONCAT(DISTINCT classification) AS DistinctValues FROM hh
-UNION ALL
-SELECT
-    'Années' AS AttributeName, GROUP_CONCAT(DISTINCT annees) AS DistinctValues FROM hh;";
+    'Années' AS AttributeName, 'annees' AS r_Name, GROUP_CONCAT(DISTINCT annees) AS DistinctValues FROM hh;";
 
         $result = $conn->query($sql);
 
@@ -53,4 +49,4 @@ SELECT
         }
 
         $conn->close();
-        ?>
+?>
