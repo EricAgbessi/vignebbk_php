@@ -1,7 +1,7 @@
 <?php
         require_once('connexion.php');
     
-        $sql = 'SELECT * FROM hh WHERE 1=1';
+        $sql = 'SELECT * FROM hh,images WHERE 1=1 AND images.id_vin=hh.id AND images.main=1';
         if (isset($_GET['cepages'])) {
                 $sql = 'SELECT * FROM hh,cepages WHERE 1=1';
         }
