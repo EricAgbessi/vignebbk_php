@@ -18,7 +18,7 @@
 	    echo $json_data;
     
         } else {
-            echo "Aucun client trouvé.";
+            
         }
     }
 

@@ -1,7 +1,10 @@
 <?php
         require_once('connexion.php');
     
-        $sql = 'SELECT * FROM hh,images WHERE 1=1 AND images.id_vin=hh.id AND images.main=1';
+        $sql = 'SELECT *,hh.id as id_important
+		FROM hh
+		LEFT JOIN images ON images.id_vin = hh.id AND images.main = 1
+		';
         if (isset($_GET['cepages'])) {
                 $sql = 'SELECT * FROM hh,cepages WHERE 1=1';
         }
