@@ -12,12 +12,26 @@ UNION ALL
 SELECT
     'Teneur en alcool' AS AttributeName, 'teneur_en_alcool' AS r_Name, GROUP_CONCAT(DISTINCT teneur_en_alcool) AS DistinctValues FROM hh
 UNION ALL
-SELECT DISTINCT 'cepages' AS AttributeName, 'designation' AS r_Name, GROUP_CONCAT(designation) AS DistinctValues FROM cepages
+
+
+
+SELECT 'Cépages' AS AttributeName, 'designation' AS r_Name, GROUP_CONCAT(DISTINCT cepages.designation) AS DistinctValues
+FROM cepages
+
+
+
+
 UNION ALL
 SELECT
     'Allergenes' AS AttributeName,'allergenes' AS r_Name, GROUP_CONCAT(DISTINCT allergenes) AS DistinctValues FROM hh
 UNION ALL
-SELECT DISTINCT 'aliments_compatibles' AS AttributeName,'designation' AS r_Name, GROUP_CONCAT(designation) AS DistinctValues FROM aliments_compatibles
+
+
+
+SELECT  'Aliments Compatibles' AS AttributeName,'designation' AS r_Name, GROUP_CONCAT(DISTINCT aliments_compatibles.designation) AS DistinctValues FROM aliments_compatibles
+
+
+
 UNION ALL
 SELECT
     'Prix /Unité' AS AttributeName,'prix_unite' AS r_Name, GROUP_CONCAT(DISTINCT prix_unite) AS DistinctValues FROM hh
