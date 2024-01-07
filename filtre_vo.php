@@ -58,14 +58,6 @@
         }
 
 
-         if (isset($_GET['cognac'])) {
-            $sql .= ' WHERE Style_de_Vin = "Cognac"';
-        }
-
-         if (isset($_GET['champagne'])) {
-            $sql .= ' WHERE Style_de_Vin = "Champagne"';
-        }
-
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

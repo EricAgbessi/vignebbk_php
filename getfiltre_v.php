@@ -1,8 +1,9 @@
 <?php
-        require_once('connexion.php');
+
+require_once('connexion.php');
 
 
-       $sql = "
+$sql = "
 SELECT
     'Région/Domaine' AS AttributeName, 'Region_domaine' AS r_Name, GROUP_CONCAT(DISTINCT Region_domaine) AS DistinctValues FROM vodun_days
 UNION ALL
@@ -12,26 +13,13 @@ UNION ALL
 SELECT
     'Teneur en alcool' AS AttributeName, 'teneur_en_alcool' AS r_Name, GROUP_CONCAT(DISTINCT teneur_en_alcool) AS DistinctValues FROM vodun_days
 UNION ALL
-
-
-
 SELECT 'Cépages' AS AttributeName, 'designation' AS r_Name, GROUP_CONCAT(DISTINCT cepages_v.designation) AS DistinctValues
 FROM cepages
-
-
-
-
 UNION ALL
 SELECT
     'Allergenes' AS AttributeName,'allergenes' AS r_Name, GROUP_CONCAT(DISTINCT allergenes) AS DistinctValues FROM vodun_days
 UNION ALL
-
-
-
 SELECT  'Aliments Compatibles' AS AttributeName,'designation' AS r_Name, GROUP_CONCAT(DISTINCT aliments_compatibles_v.designation) AS DistinctValues FROM aliments_compatibles
-
-
-
 UNION ALL
 SELECT
     'Prix /Unité' AS AttributeName,'prix_unite' AS r_Name, GROUP_CONCAT(DISTINCT prix_unite) AS DistinctValues FROM vodun_days
