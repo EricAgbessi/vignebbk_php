@@ -1,9 +1,9 @@
 <?php
         require_once('connexion.php');
     
-        $sql = 'SELECT vodun_days.*, images.*, vodun_days.id AS id_important
+        $sql = 'SELECT vodun_days.*, images_v.*, vodun_days.id AS id_important
 		FROM vodun_days
-		LEFT JOIN images ON images.id_vin = vodun_days.id AND images.main = 1
+		LEFT JOIN images_v ON images_v.id_vin = vodun_days.id AND images_v.main = 1
 		';
         if (isset($_GET['cepages'])) {
                 $sql = 'SELECT * FROM vodun_days,cepages_v WHERE 1=1';
