@@ -1,7 +1,7 @@
 <?php
         require_once('connexion.php');
     
-        $sql = 'SELECT * FROM `champagne` LEFT JOIN images_champagne ON champagne.id = images_champagne.id_cognac AND images_champagne.main = 1;';
+        $sql = 'SELECT * FROM `champagne` LEFT JOIN images_champagne ON champagne.id = images_champagne.id_champagne AND images_champagne.main = 1;';
 		
 
         $result = $conn->query($sql);
