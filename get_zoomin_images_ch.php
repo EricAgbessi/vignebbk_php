@@ -13,6 +13,7 @@
             
             }
              $json_data = json_encode($data);
+             
 
 	    // Affichage du JSON
 	    echo $json_data;
