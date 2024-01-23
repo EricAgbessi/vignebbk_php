@@ -2,7 +2,7 @@
         require_once('connexion.php');
  if(isset($_GET['id'])) {
 	$id=$_GET["id"];
-       $sql = "SELECT * FROM images_v where id_vin=$id";
+       $sql = "SELECT * FROM images_cognac where id_cognac=$id";
 
        $result = $conn->query($sql);
 

@@ -2,7 +2,7 @@
         require_once('connexion.php');
  if(isset($_GET['id'])) {
 	$id=$_GET["id"];
-       $sql = "SELECT * FROM vodun_days where id=$id";
+       $sql = "SELECT * FROM cognac where id=$id";
 
        $result = $conn->query($sql);
 
